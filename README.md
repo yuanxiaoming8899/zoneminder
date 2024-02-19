@@ -1,94 +1,69 @@
-ZoneMinder
-==========
-
-[![Bounty Source](https://api.bountysource.com/badge/team?team_id=204&style=bounties_received)](https://www.bountysource.com/teams/zoneminder/issues?utm_source=ZoneMinder&utm_medium=shield&utm_campaign=bounties_received)
-[![Join Slack](https://github.com/ozonesecurity/ozonebase/blob/master/img/slacksm.png?raw=true)](https://join.slack.com/t/zoneminder-chat/shared_invite/enQtNTU0NDkxMDM5NDQwLTdhZmQ5Y2M2NWQyN2JkYTBiN2ZkMzIzZGQ0MDliMTRmM2FjZWRlYzUwYTQ2MjMwMTVjMzQ1NjYxOTdmMjE2MTE "Join Slack")
-<a href="https://discord.gg/tHYyP9k66q" title="Join Discord Server"><img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="drawing" width="50"/></a>
-
-
-All documentation for ZoneMinder is now online at https://zoneminder.readthedocs.org
-
-## Overview
-
-ZoneMinder is an integrated set of applications which provide a complete surveillance solution allowing capture, analysis, recording and monitoring of any CCTV or security cameras attached to a Linux based machine. It is designed to run on distributions which support the Video For Linux (V4L) interface and has been tested with video cameras attached to BTTV cards, various USB cameras and also supports most IP network cameras. 
-
-## Contacting the Development Team
-Before creating an issue in our github forum, please read our posting rules:
-https://github.com/ZoneMinder/ZoneMinder/wiki/Github-Posting-Rules
-
-## Our Dockerfile has moved
-Please file issues against the ZoneMinder Dockerfile here: 
-https://github.com/ZoneMinder/zmdockerfiles
-
-## Installation Methods
-
-### Install from a Package Repository
-
-This is the recommended method to install ZoneMinder onto your system. ZoneMinder packages are maintained for the following distros:
-
-- Ubuntu via [Isaac Connor's PPA](https://launchpad.net/~iconnor)
-- Debian from their [default repository](https://packages.debian.org/search?searchon=names&keywords=zoneminder) 
-- RHEL/CentOS and clones via [RPM Fusion](http://rpmfusion.org)
-- Fedora via [RPM Fusion](http://rpmfusion.org)
-- OpenSuse via [third party repository](https://wiki.zoneminder.com/Installing_using_ZoneMinder_RPMs_for_SuSE)
-- Mageia from their default repository
-- Arch via the [AUR](https://aur.archlinux.org/packages/zoneminder/)
-- Gentoo via [Portage Overlays](http://gpo.zugaina.org/www-misc/zoneminder)
-
-If a repository that hosts ZoneMinder packages is not available for your distro, then you are encouraged to build your own package, rather than build from source.  While each distro is different in ways that set it apart from all the others, they are often similar enough to allow you to adapt another distro's package building instructions to your own.
-
-### Building from Source is Discouraged
-
-Historically, installing ZoneMinder onto your system required building from source code by issuing the traditional configure, make, make install commands.  To get ZoneMinder to build, all of its dependencies had to be determined and installed beforehand. Init and logrotate scripts had to be manually copied into place following the build.  Optional packages such as jscalendar and Cambozola had to be manually installed. Uninstalls could leave stale files around, which could cause problems during an upgrade.  Speaking of upgrades, when it comes time to upgrade all these manual steps must be repeated again.
-
-Better methods exist today that do much of this for you. The current development team, along with other volunteers, have taken great strides in providing the resources necessary to avoid building from source.  
-
-
-### Building a ZoneMinder Package ###
-
-Building ZoneMinder into a package is not any harder than building from source.  As a matter of fact, if you have successfully built ZoneMinder from source in the past, then you may find these steps to be easier. 
-
-When building a package, it is best to do this work in a separate environment, dedicated to development purposes. This could be as simple as creating a virtual machine, using Docker, or using mock.  All it takes is one “Oops” to regret doing this work on your production server.
-
-Lastly, if you desire to build a development snapshot from the master branch, it is recommended you first build your package using an official release of ZoneMinder. This will help identify whether any problems you may encounter are caused by the build process or is a new issue in the master branch.
-
-Please visit our [ReadtheDocs site](https://zoneminder.readthedocs.org/en/stable/installationguide/index.html) for distro specific instructions.
-
-### Package Maintainers
-Many of the ZoneMinder configuration variable default values are not configurable at build time through autotools or cmake.  A new tool called *zmeditconfigdata.sh* has been added to allow package maintainers to manipulate any variable stored in ConfigData.pm without patching the source. 
-
-For example, let's say I have created a new ZoneMinder package that contains the cambozola javascript file.  However, by default cambozola support is turned off.  To fix that, add this to the packaging script:
-```bash
-./utils/zmeditconfigdata.sh ZM_OPT_CAMBOZOLA yes
-```
-
-Note that zmeditconfigdata.sh is intended to be called, from the root build folder, prior to running cmake or configure.
-
-#### Docker
-
-Docker is a system to run applications inside isolated containers. ZoneMinder, and the ZM webserver, will run using the 
-Dockerfile contained in this repository. However, there is still work needed to ensure that the main ZM features work 
-properly and are documented. 
-
-## Contribution Model and Development
-
-* Source hosted at [GitHub](https://github.com/ZoneMinder/ZoneMinder/)
-* Report issues at [GitHub Issues](https://github.com/ZoneMinder/ZoneMinder/issues)
-* Questions/feature requests in [Slack](https://zoneminder-chat.slack.com/) or [forums](https://forums.zoneminder.com)
-
-Pull requests are very welcome!  If you would like to contribute, please follow
-the following steps.  While step 3 is optional, it is preferred.
-
-1. Fork the repo
-2. Open an issue at our [GitHub Issues Tracker](https://github.com/ZoneMinder/ZoneMinder/issues).
-   Follow the issue template to describe the bug or security issue you found. Please note feature
-   requests or questions should be posted in our user forum or Slack channel.
-3. Create your feature branch (`git checkout -b 456-my-new-feature`)
-4. Commit your changes (`git commit -am 'Added some feature'`)
-   It is preferred that you 'commit early and often' instead of bunching all
-   changes into a single commit.
-5. Push your branch to your fork on github (`git push origin 456-my-new-feature`)
-6. Create new Pull Request
-7. The team will then review, discuss and hopefully merge your changes.
-
-[![Analytics](https://ga-beacon.appspot.com/UA-15147273-6/ZoneMinder/README.md)](https://github.com/igrigorik/ga-beacon)
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><h1 tabindex="-1" dir="auto"><a id="user-content-zoneminder" class="anchor" aria-hidden="true" tabindex="-1" href="#zoneminder"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">区域管理器</font></font></h1>
+<p dir="auto"><a href="https://www.bountysource.com/teams/zoneminder/issues?utm_source=ZoneMinder&amp;utm_medium=shield&amp;utm_campaign=bounties_received" rel="nofollow"><img src="https://camo.githubusercontent.com/bc462daa8780a4891fba46fe2b85142ec66828bbb90dad7fc983a17a6d643d0b/68747470733a2f2f6170692e626f756e7479736f757263652e636f6d2f62616467652f7465616d3f7465616d5f69643d323034267374796c653d626f756e746965735f7265636569766564" alt="赏金来源" data-canonical-src="https://api.bountysource.com/badge/team?team_id=204&amp;style=bounties_received" style="max-width: 100%;"></a>
+<a href="https://join.slack.com/t/zoneminder-chat/shared_invite/enQtNTU0NDkxMDM5NDQwLTdhZmQ5Y2M2NWQyN2JkYTBiN2ZkMzIzZGQ0MDliMTRmM2FjZWRlYzUwYTQ2MjMwMTVjMzQ1NjYxOTdmMjE2MTE" title="加入松弛" rel="nofollow"><img src="https://github.com/ozonesecurity/ozonebase/raw/master/img/slacksm.png?raw=true" alt="加入松弛" style="max-width: 100%;"></a>
+<a href="https://discord.gg/tHYyP9k66q" title="加入 Discord 服务器" rel="nofollow"><img src="https://camo.githubusercontent.com/ea56f1aae4eb527e8c964bff0c449d75c276a9344ad50ac997a719039e4daddc/68747470733a2f2f6173736574732d676c6f62616c2e776562736974652d66696c65732e636f6d2f3632353761646566393338363765353064383464333065322f3633366530613661343963663132376266393264653165325f69636f6e5f636c7964655f626c7572706c655f5247422e706e67" alt="绘画" width="50" data-canonical-src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ZoneMinder 的所有文档现已在线访问</font></font><a href="https://zoneminder.readthedocs.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://zoneminder.readthedocs.org</font></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-overview" class="anchor" aria-hidden="true" tabindex="-1" href="#overview"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">概述</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ZoneMinder 是一套集成的应用程序，提供完整的监控解决方案，允许捕获、分析、记录和监控连接到基于 Linux 的机器的任何闭路电视或安全摄像机。</font><font style="vertical-align: inherit;">它设计为在支持 Video For Linux (V4L) 接口的发行版上运行，并已通过连接到 BTTV 卡的摄像机、各种 USB 摄像机进行了测试，并且还支持大多数 IP 网络摄像机。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-contacting-the-development-team" class="anchor" aria-hidden="true" tabindex="-1" href="#contacting-the-development-team"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">联系开发团队</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在我们的 github 论坛中创建问题之前，请阅读我们的发帖规则：
+ </font></font><a href="https://github.com/ZoneMinder/ZoneMinder/wiki/Github-Posting-Rules"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/ZoneMinder/ZoneMinder/wiki/Github-Posting-Rules</font></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-our-dockerfile-has-moved" class="anchor" aria-hidden="true" tabindex="-1" href="#our-dockerfile-has-moved"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们的 Dockerfile 已移动</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请在此处提交针对 ZoneMinder Dockerfile 的问题：
+ https: </font></font><a href="https://github.com/ZoneMinder/zmdockerfiles"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">//github.com/ZoneMinder/zmdockerfiles</font></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-installation-methods" class="anchor" aria-hidden="true" tabindex="-1" href="#installation-methods"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装方法</font></font></h2>
+<h3 tabindex="-1" dir="auto"><a id="user-content-install-from-a-package-repository" class="anchor" aria-hidden="true" tabindex="-1" href="#install-from-a-package-repository"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从包存储库安装</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这是在系统上安装 ZoneMinder 的推荐方法。</font><font style="vertical-align: inherit;">ZoneMinder 软件包为以下发行版维护：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ubuntu 通过</font></font><a href="https://launchpad.net/~iconnor" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Isaac Connor 的 PPA</font></font></a></li>
+<li><font style="vertical-align: inherit;"><a href="https://packages.debian.org/search?searchon=names&amp;keywords=zoneminder" rel="nofollow"><font style="vertical-align: inherit;">来自默认存储库</font></a><font style="vertical-align: inherit;">的 Debian</font></font><a href="https://packages.debian.org/search?searchon=names&amp;keywords=zoneminder" rel="nofollow"><font style="vertical-align: inherit;"></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RHEL/CentOS 和通过</font></font><a href="http://rpmfusion.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RPM Fusion 的克隆</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Fedora 通过</font></font><a href="http://rpmfusion.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RPM Fusion</font></font></a></li>
+<li><font style="vertical-align: inherit;"><a href="https://wiki.zoneminder.com/Installing_using_ZoneMinder_RPMs_for_SuSE" rel="nofollow"><font style="vertical-align: inherit;">通过第三方存储库的</font></a><font style="vertical-align: inherit;">OpenSuse</font></font><a href="https://wiki.zoneminder.com/Installing_using_ZoneMinder_RPMs_for_SuSE" rel="nofollow"><font style="vertical-align: inherit;"></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来自默认存储库的 Mageia</font></font></li>
+<li><font style="vertical-align: inherit;"><a href="https://aur.archlinux.org/packages/zoneminder/" rel="nofollow"><font style="vertical-align: inherit;">通过AUR</font></a><font style="vertical-align: inherit;">拱形</font></font><a href="https://aur.archlinux.org/packages/zoneminder/" rel="nofollow"><font style="vertical-align: inherit;"></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gentoo 通过</font></font><a href="http://gpo.zugaina.org/www-misc/zoneminder" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Portage Overlays</font></font></a></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果托管 ZoneMinder 软件包的存储库不适用于您的发行版，那么我们鼓励您构建自己的软件包，而不是从源代码构建。</font><font style="vertical-align: inherit;">虽然每个发行版在方式上都有所不同，使其与其他发行版区分开来，但它们通常足够相似，允许您将另一个发行版的软件包构建说明改编为您自己的发行版。</font></font></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-building-from-source-is-discouraged" class="anchor" aria-hidden="true" tabindex="-1" href="#building-from-source-is-discouraged"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不鼓励从源代码构建</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从历史上看，将 ZoneMinder 安装到系统上需要通过发出传统的 configure、make、make install 命令从源代码进行构建。</font><font style="vertical-align: inherit;">要构建 ZoneMinder，必须事先确定并安装其所有依赖项。</font><font style="vertical-align: inherit;">构建后必须手动将 Init 和 logrotate 脚本复制到位。</font><font style="vertical-align: inherit;">必须手动安装 jscalendar 和 Cambozola 等可选软件包。</font><font style="vertical-align: inherit;">卸载可能会留下过时的文件，这可能会在升级过程中导致问题。</font><font style="vertical-align: inherit;">说到升级，当需要升级时，必须再次重复所有这些手动步骤。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现在有更好的方法可以为您完成大部分工作。</font><font style="vertical-align: inherit;">当前的开发团队与其他志愿者一起在提供避免从源头构建所需的资源方面取得了长足的进步。</font></font></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-building-a-zoneminder-package" class="anchor" aria-hidden="true" tabindex="-1" href="#building-a-zoneminder-package"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">构建 ZoneMinder 包</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将 ZoneMinder 构建到包中并不比从源代码构建困难。</font><font style="vertical-align: inherit;">事实上，如果您过去从源代码成功构建了 ZoneMinder，那么您可能会发现这些步骤更容易。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">构建包时，最好在专门用于开发目的的单独环境中完成这项工作。</font><font style="vertical-align: inherit;">这可以像创建虚拟机、使用 Docker 或使用模拟一样简单。</font><font style="vertical-align: inherit;">只需要一声“哎呀”就会后悔在生产服务器上完成这项工作。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">最后，如果您希望从 master 分支构建开发快照，建议您首先使用 ZoneMinder 的官方版本构建包。</font><font style="vertical-align: inherit;">这将有助于确定您可能遇到的任何问题是由构建过程引起的还是主分支中的新问题。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请访问我们的</font></font><a href="https://zoneminder.readthedocs.org/en/stable/installationguide/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ReadtheDocs 网站</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以获取发行版的具体说明。</font></font></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-package-maintainers" class="anchor" aria-hidden="true" tabindex="-1" href="#package-maintainers"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包维护者</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许多 ZoneMinder 配置变量默认值在构建时无法通过 autotools 或 cmake 配置。</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">添加了一个名为zmeditconfigdata.sh</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的新工具</font><font style="vertical-align: inherit;">，允许包维护者操作存储在 ConfigData.pm 中的任何变量，而无需修补源。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">例如，假设我创建了一个新的 ZoneMinder 包，其中包含 cambozola javascript 文件。</font><font style="vertical-align: inherit;">但是，默认情况下，cambozola 支持处于关闭状态。</font><font style="vertical-align: inherit;">要解决此问题，请将其添加到打包脚本中：</font></font></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>./utils/zmeditconfigdata.sh ZM_OPT_CAMBOZOLA yes</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="./utils/zmeditconfigdata.sh ZM_OPT_CAMBOZOLA yes" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请注意，zmeditconfigdata.sh 旨在在运行 cmake 或 configure 之前从根构建文件夹中调用。</font></font></p>
+<h4 tabindex="-1" dir="auto"><a id="user-content-docker" class="anchor" aria-hidden="true" tabindex="-1" href="#docker"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">码头工人</font></font></h4>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Docker 是一个在隔离容器内运行应用程序的系统。</font><font style="vertical-align: inherit;">ZoneMinder 和 ZM Web 服务器将使用此存储库中包含的 Dockerfile 运行。</font><font style="vertical-align: inherit;">然而，仍然需要做一些工作来确保主要的 ZM 功能正常工作并记录下来。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-contribution-model-and-development" class="anchor" aria-hidden="true" tabindex="-1" href="#contribution-model-and-development"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献模型及开发</font></font></h2>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">源托管在</font></font><a href="https://github.com/ZoneMinder/ZoneMinder/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GitHub</font></font></a></li>
+<li><font style="vertical-align: inherit;"><a href="https://github.com/ZoneMinder/ZoneMinder/issues"><font style="vertical-align: inherit;">在GitHub Issue</font></a><font style="vertical-align: inherit;">中报告问题</font></font><a href="https://github.com/ZoneMinder/ZoneMinder/issues"><font style="vertical-align: inherit;"></font></a></li>
+<li><font style="vertical-align: inherit;"></font><a href="https://zoneminder-chat.slack.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Slack</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font><a href="https://forums.zoneminder.com" rel="nofollow"><font style="vertical-align: inherit;">论坛</font></a><font style="vertical-align: inherit;">中的问题/功能请求</font></font><a href="https://forums.zoneminder.com" rel="nofollow"><font style="vertical-align: inherit;"></font></a></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">非常欢迎请求请求！</font><font style="vertical-align: inherit;">如果您想贡献，请按照以下步骤操作。</font><font style="vertical-align: inherit;">虽然步骤 3 是可选的，但它是优选的。</font></font></p>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">分叉仓库</font></font></li>
+<li><font style="vertical-align: inherit;"></font><a href="https://github.com/ZoneMinder/ZoneMinder/issues"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在我们的GitHub 问题跟踪器</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中打开问题</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">按照问题模板描述您发现的错误或安全问题。</font><font style="vertical-align: inherit;">请注意，功能请求或问题应发布在我们的用户论坛或 Slack 频道中。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建您的功能分支 ( </font></font><code>git checkout -b 456-my-new-feature</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">)</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提交您的更改 ( </font></font><code>git commit -am 'Added some feature'</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">) 您最好“尽早且经常提交”，而不是将所有更改集中到一次提交中。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将您的分支推送到 github 上的分支 ( </font></font><code>git push origin 456-my-new-feature</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">)</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建新的拉取请求</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">然后，团队将审查、讨论并希望合并您的更改。</font></font></li>
+</ol>
+<p dir="auto"><a href="https://github.com/igrigorik/ga-beacon"><img src="https://camo.githubusercontent.com/ded39dd7c9dfa75f4ac1bb59dc4279c6a8b99771b528f1a4414a1b24f7503030/68747470733a2f2f67612d626561636f6e2e61707073706f742e636f6d2f55412d31353134373237332d362f5a6f6e654d696e6465722f524541444d452e6d64" alt="分析" data-canonical-src="https://ga-beacon.appspot.com/UA-15147273-6/ZoneMinder/README.md" style="max-width: 100%;"></a></p>
+</article></div>
